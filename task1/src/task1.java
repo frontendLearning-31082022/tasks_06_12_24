@@ -6,6 +6,13 @@ import java.util.stream.Collectors;
  */
 
 class task1 {
+    private int size;
+
+    private int distance;
+
+    int curStartPoint = 0;
+    private ArrayList<Integer> orderFirstEls;
+
     public task1(int size, int distance) {
         this.size = size;
         this.distance = distance - 1;
@@ -16,16 +23,6 @@ class task1 {
         System.out.println(new task1(Integer.valueOf(args[0]),
                 Integer.valueOf(args[1])).calculatePath());
     }
-
-    private int size;
-
-    private int distance;
-
-    int curStartPoint = 0;
-    private ArrayList<Integer> orderFirstEls;
-
-//    private HashSet<Integer> distinctIntervals;
-
 
     public String calculatePath() {
         boolean allFinded = false;
@@ -38,9 +35,7 @@ class task1 {
     }
 
     private void calculateOneLoop() {
-//        if (distinctIntervals.contains(curStartPoint)) return true;
 //        distinctIntervals.add(curStartPoint);
-
         orderFirstEls.add(curStartPoint + 1);
         curStartPoint = getEndPoint();
     }
@@ -49,6 +44,4 @@ class task1 {
         int offsetPos = curStartPoint + distance;
         return offsetPos - (Integer.valueOf((offsetPos) / size) * size);
     }
-
-
 }
